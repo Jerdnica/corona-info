@@ -1,19 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/home/Home';
+import CountryDetails from "@/components/country-details/Chart";
+import Vue from 'vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Home,
+    CountryDetails
   }
 }
+
+Vue.mixin({
+  methods: {
+    showError: function (message) {
+      this.$swal.fire({
+        position: 'top-end',
+        showConfirmButton: false,
+        icon: 'error',
+        text: message,
+        timer: 2500,
+        timerProgressBar: true,
+      })
+    },
+  },
+});
+
+Vue.filter('kebabToTitle', function (str) {
+  return str.split('-').map(function (item) {
+    return item.charAt(0).toUpperCase() + item.substring(1);
+  }).join(' ');
+});
+
+Vue.filter("formatNumber", function (value) {
+  return new Intl.NumberFormat().format(value);
+});
 </script>
 
 <style>
@@ -23,6 +50,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.loader {
+  margin: 80px auto;
+  transform: scale(2);
 }
 </style>
