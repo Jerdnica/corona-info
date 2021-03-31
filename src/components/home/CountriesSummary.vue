@@ -7,7 +7,7 @@
                 :hover-state-enabled="true">
       <DxSearchPanel
           :visible="true"
-          :highlight-case-sensitive="true" />
+          :highlight-case-sensitive="true"/>
       <DxColumn data-field="Country"/>
       <DxColumn data-field="TotalConfirmed" sort-order="desc"/>
       <DxColumn data-field="TotalRecovered"/>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { DxDataGrid, DxColumn, DxSearchPanel } from 'devextreme-vue/data-grid';
+import {DxDataGrid, DxColumn, DxSearchPanel} from 'devextreme-vue/data-grid';
 import router from "@/router";
 
 export default {
@@ -32,7 +32,7 @@ export default {
     DxSearchPanel
   },
   methods: {
-    onSelectionChanged({ selectedRowsData }) {
+    onSelectionChanged({selectedRowsData}) {
       router.push(`country/${selectedRowsData[0]['Slug']}`);
     }
   }

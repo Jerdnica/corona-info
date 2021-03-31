@@ -3,18 +3,23 @@
     <h1> Global info </h1>
     <RotateSquare5 class="loader" v-if="loading"></RotateSquare5>
     <table v-else>
-      <tr><td></td><td> Confirmed </td><td> Recovered </td><td> Deaths </td></tr>
+      <tr>
+        <td></td>
+        <td> Confirmed</td>
+        <td> Recovered</td>
+        <td> Deaths</td>
+      </tr>
       <tr>
         <td>TOTAL</td>
-        <td> {{globalData.TotalConfirmed | formatNumber}} </td>
-        <td> {{globalData.TotalRecovered | formatNumber}} </td>
-        <td> {{globalData.TotalDeaths | formatNumber}}</td>
+        <td> {{ globalData.TotalConfirmed | formatNumber }}</td>
+        <td> {{ globalData.TotalRecovered | formatNumber }}</td>
+        <td> {{ globalData.TotalDeaths | formatNumber }}</td>
       </tr>
       <tr>
         <td>NEW</td>
-        <td> {{globalData.NewConfirmed | formatNumber}} </td>
-        <td> {{globalData.NewRecovered | formatNumber}} </td>
-        <td>  {{globalData.NewDeaths | formatNumber}} </td>
+        <td> {{ globalData.NewConfirmed | formatNumber }}</td>
+        <td> {{ globalData.NewRecovered | formatNumber }}</td>
+        <td> {{ globalData.NewDeaths | formatNumber }}</td>
       </tr>
     </table>
     <h1> Corona virus stats by country </h1>
@@ -68,6 +73,7 @@ table {
   font-size: 21px;
   margin: 0 auto;
 }
+
 table td {
   padding: 2px 5px;
 }

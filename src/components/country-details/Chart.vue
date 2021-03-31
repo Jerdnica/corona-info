@@ -22,7 +22,7 @@
     </div>
     <RotateSquare5 class="loader" v-if="loading"></RotateSquare5>
     <DxChart v-else
-        :data-source="dailyReport"
+             :data-source="dailyReport"
     >
       <DxSeries
           argument-field="Date"
@@ -85,7 +85,7 @@ export default {
     // slajder da bude u tom rangeu, na zalost.
     const today = new Date();
     let weekBefore = new Date();
-    weekBefore.setDate( weekBefore.getDate() - 6 );
+    weekBefore.setDate(weekBefore.getDate() - 6);
     return {
       loading: true,
       dailyReport: [],
@@ -134,7 +134,6 @@ export default {
   mounted() {
     this.fetchData();
     let container = this.$el.querySelector(".range-wrapper");
-    console.log(container);
     container.scrollLeft = container.scrollWidth;
   }
 }
@@ -146,6 +145,7 @@ export default {
   /* slajder sam morao prosiriti zbog gore navedenog ogranicenja */
   width: 5200px;
 }
+
 .range-wrapper {
   overflow-x: scroll;
 }
